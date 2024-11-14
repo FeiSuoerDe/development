@@ -1,7 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1731556243
+::res://::1731562345
 icon.svg::CompressedTexture2D::38378161057600718::1731556155::1731556167::1::::<><>::
 ::res://Com/::1731556248
-::res://Com/World/::1731556443
-::res://Com/World/source/::1731556480
+::res://Com/World/::1731558296
+World.cs::CSharpScript::-1::1731558614::0::1::::<>Node<>::
+world.tscn::PackedScene::9156934403440847258::1731558296::0::1::::<><>::res://Com/World/World.cs<>uid://cue1ou5vqektk::::res://Com/World/source/Terr.png
+::res://Com/World/source/::1731556482
 Terr.png::CompressedTexture2D::6186480491876515576::1731556480::1731556482::1::::<><>::
