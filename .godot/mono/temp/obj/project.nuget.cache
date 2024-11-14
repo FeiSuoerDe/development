@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "1h5T5ZupHSpREHrB+zFOQAr44T9hCCNYA9mYrVfinWsXYJVku++ilLxzIMkBNbpvHQv+F+5LvRQ4ATfIBcEI7Q==",
+  "success": true,
+  "projectFilePath": "E:\\360MoveData\\Users\\lxl\\Desktop\\development\\Development.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\lxl\\.nuget\\packages\\godot.sourcegenerators\\4.3.0\\godot.sourcegenerators.4.3.0.nupkg.sha512",
+    "C:\\Users\\lxl\\.nuget\\packages\\godotsharp\\4.3.0\\godotsharp.4.3.0.nupkg.sha512",
+    "C:\\Users\\lxl\\.nuget\\packages\\godotsharpeditor\\4.3.0\\godotsharpeditor.4.3.0.nupkg.sha512",
+    "C:\\Users\\lxl\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\lxl\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\lxl\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,17 @@
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\Development.deps.json
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\Development.runtimeconfig.json
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\Development.dll
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\Development.pdb
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\GodotSharp.dll
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\bin\Debug\GodotSharpEditor.dll
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.csproj.AssemblyReference.cache
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.GeneratedMSBuildEditorConfig.editorconfig
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.AssemblyInfoInputs.cache
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.AssemblyInfo.cs
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.csproj.CoreCompileInputs.cache
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.csproj.CopyComplete
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.dll
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\refint\Development.dll
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.pdb
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\Development.genruntimeconfig.cache
+E:\360MoveData\Users\lxl\Desktop\development\.godot\mono\temp\obj\Debug\ref\Development.dll
