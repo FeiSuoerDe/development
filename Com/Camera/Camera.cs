@@ -17,10 +17,10 @@ public partial class Camera : Node
 		movement = new Vector2(0, 0); // 重置移动向量
 
 		// 检查方向键并更新移动向量
-		if (Input.IsActionPressed("move_up")) movement += new Vector2(0, -1);
-		if (Input.IsActionPressed("move_down")) movement += new Vector2(0, 1);
-		if (Input.IsActionPressed("move_left")) movement += new Vector2(-1, 0);
-		if (Input.IsActionPressed("move_right")) movement += new Vector2(1, 0);
+		if (Input.IsActionPressed("w")) movement += new Vector2(0, -1);
+		if (Input.IsActionPressed("s")) movement += new Vector2(0, 1);
+		if (Input.IsActionPressed("a")) movement += new Vector2(-1, 0);
+		if (Input.IsActionPressed("d")) movement += new Vector2(1, 0);
 
 		// 更新相机位置
 		camera2D.Position += movement * currentSpeed * (float)delta;
