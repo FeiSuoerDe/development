@@ -4,100 +4,102 @@ using System;
 public partial class World : Node
 {
 	[Export]
-	public TileMapLayer Terr;
+	public TileMapLayer TerrainLayer;
 
 	[Export]
-	public TileMapLayer River;
+	public TileMapLayer RiverLayer;
 
 	[Export]
-	public TileMapLayer Ecolog;
+	public TileMapLayer EcologyLayer;
 
 	[Export]
-	public FastNoiseLite fastNoiseLite;
+	public FastNoiseLite NoiseGenerator;
 
 	[Export]
-	public int seed;
+	public int Seed;
 
 	[Export]
-	public Vector2I MapSize = new Vector2I(500, 500);
+	public Vector2I MapDimensions = new Vector2I(500, 500);
 
 	[Export(PropertyHint.Range, "-5,5,1"), ExportGroup("地形参数")]
 	public float Elevation;
 
 	[Export(PropertyHint.Range, "-5,5,1")]
-	public float moisture;
+	public float Moisture;
 
 	[Export(PropertyHint.Range, "-5,5,1")]
-	public float temperature;
+	public float Temperature;
 
-	// 地形配置数组
+	// 地形阈值数组
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold1 = -0.3f;
-
-	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold2 = 0.02f;
+	public float DeepSeaThreshold = -0.3f;
 
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold3 = 0.05f;
+	public float SeaThreshold = 0.02f;
 
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold4 = 0.5f;
+	public float ShallowWaterThreshold = 0.05f;
 
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold5 = 0.7f;
+	public float GrasslandThreshold = 0.3f;
 
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold6 = 0.75f;
+	public float HighlandThreshold = 0.5f;
 
 	[Export(PropertyHint.Range, "-1,1,0.01")]
-	public float Threshold7 = 0.8f;
+	public float RockThreshold = 0.7f;
+
+	[Export(PropertyHint.Range, "-1,1,0.01")]
+	public float MountainThreshold = 0.8f;
+
+	[Export(PropertyHint.Range, "-1,1,0.01")]
+	public float SnowMountainThreshold = 0.85f;
 
 	// 地形索引数组
 	public Vector2I[] TerrainIndices = new Vector2I[]
 	{
-		new Vector2I(1, 0),
-		new Vector2I(2, 0),
-		new Vector2I(3, 0),
-		new Vector2I(4, 0),
-		new Vector2I(5, 0),
-		new Vector2I(6, 0),
-		new Vector2I(7, 0),
-		new Vector2I(8, 0),
-		new Vector2I(9, 0)
-	};
+		new Vector2I(1, 0), // DeepSea
+        new Vector2I(2, 0), // Sea
+        new Vector2I(3, 0), // ShallowWater
+        new Vector2I(5, 0), // Grassland
+        new Vector2I(6, 0), // Highland
+        new Vector2I(7, 0), // Rock
+        new Vector2I(8, 0), // Mountain
+        new Vector2I(9, 0)  // SnowMountain
+    };
 
 	public override void _Ready()
 	{
-		redNoise();
+		InitializeNoise();
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		if (Input.IsActionJustPressed("enter"))
 		{
-			MakeMap();
+			GenerateMap();
 		}
 	}
 
 	// 初始化噪声
-	public void redNoise()
+	public void InitializeNoise()
 	{
-		fastNoiseLite.SetSeed(seed);
+		NoiseGenerator.SetSeed(Seed);
 	}
 
-	private void MakeMap()
+	private void GenerateMap()
 	{
-		setTerr();
+		SetTerrain();
 	}
 
-	private void setTerr()
+	private void SetTerrain()
 	{
-		Terr.Clear();
-		for (int x = 0; x < MapSize.X; x++)
+		TerrainLayer.Clear();
+		for (int x = 0; x < MapDimensions.X; x++)
 		{
-			for (int y = 0; y < MapSize.Y; y++)
+			for (int y = 0; y < MapDimensions.Y; y++)
 			{
-				double noiseValue = fastNoiseLite.GetNoise2D(x, y);
+				double noiseValue = NoiseGenerator.GetNoise2D(x, y);
 				SetTerrainTile(x, y, noiseValue);
 			}
 		}
@@ -107,19 +109,29 @@ public partial class World : Node
 	{
 		Vector2I position = new Vector2I(x, y);
 		int index = GetTerrainIndex(noiseValue);
-		Terr.SetCell(position, 0, TerrainIndices[index]);
+		TerrainLayer.SetCell(position, 0, TerrainIndices[index]);
 	}
 
 	private int GetTerrainIndex(double noiseValue)
 	{
-		float[] thresholds = new float[] { Threshold1, Threshold2, Threshold3, Threshold4, Threshold5, Threshold6, Threshold7 };
-		for (int i = 0; i < thresholds.Length; i++)
+		float[] elevationThresholds = new float[]
 		{
-			if (noiseValue < thresholds[i])
+			DeepSeaThreshold,
+			SeaThreshold,
+			ShallowWaterThreshold,
+			GrasslandThreshold,
+			HighlandThreshold,
+			RockThreshold,
+			MountainThreshold,
+			SnowMountainThreshold
+		};
+		for (int i = 0; i < elevationThresholds.Length; i++)
+		{
+			if (noiseValue < elevationThresholds[i])
 			{
 				return i;
 			}
 		}
-		return thresholds.Length; // 返回最后一个索引
+		return elevationThresholds.Length; // 返回最后一个索引
 	}
 }
