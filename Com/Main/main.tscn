@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://drd2j0k7gaykg"]
+
+[ext_resource type="PackedScene" uid="uid://d3pxmv1o0mif7" path="res://Com/World/world.tscn" id="1_iapgs"]
+[ext_resource type="PackedScene" uid="uid://r1oq5gx4lfyr" path="res://Com/Camera/camera.tscn" id="2_0g2q4"]
+
+[node name="Main" type="Node"]
+
+[node name="World" parent="." instance=ExtResource("1_iapgs")]
+
+[node name="Carera" parent="." instance=ExtResource("2_0g2q4")]
