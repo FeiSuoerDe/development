@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cue1ou5vqektk" path="res://Com/World/source/Terr.png" id="2_23dhe"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_q3t6r"]
-seed = 1
+seed = 10
 frequency = 0.005
 fractal_lacunarity = 3.0
 domain_warp_enabled = true
