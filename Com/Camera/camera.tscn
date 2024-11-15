@@ -7,4 +7,5 @@ script = ExtResource("1_o5u70")
 camera2D = NodePath("Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(195, 133)
 position_smoothing_enabled = true

@@ -1,3 +1,9 @@
+RichTextLabel
+TextEdit
+ColorRect
+CanvasLayer
+Button
+Label
 Camera2D
 Node
 TileMapLayer

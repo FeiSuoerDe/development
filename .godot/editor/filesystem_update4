@@ -3,3 +3,5 @@ res://Com/Main/main.tscn
 res://Com/Camera/camera.tscn
 res://Com/Camera/Camera.cs
 res://Com/World/World.cs
+res://Com/UI/Main/main_ui.tscn
+res://Com/UI/Main/MainUi.cs
