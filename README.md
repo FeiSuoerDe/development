@@ -82,3 +82,5 @@ If you are interested in this project and wish to contribute code or make sugges
 ---
 
 Hope the above content meets your needs. You can further modify and improve it according to the actual situation.
+
+Creative Commons Non-Commercial (CC BY-NC)
