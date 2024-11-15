@@ -1,6 +1,10 @@
 using Godot;
 using System;
 
+
+/// <summary>
+/// 世界类，包含创造地图和初始化噪音
+/// </summary>
 public partial class World : Node
 {
 	[Export]
@@ -30,6 +34,8 @@ public partial class World : Node
 	[Export(PropertyHint.Range, "-5,5,1")]
 	public float Temperature;
 
+
+
 	// 地形阈值数组
 	[Export(PropertyHint.Range, "-1,1,0.01")]
 	public float DeepSeaThreshold = -0.3f;
@@ -55,6 +61,8 @@ public partial class World : Node
 	[Export(PropertyHint.Range, "-1,1,0.01")]
 	public float SnowMountainThreshold = 0.85f;
 
+
+	public TileData[,] tileDatas;
 	// 地形索引数组
 	public Vector2I[] TerrainIndices = new Vector2I[]
 	{
@@ -71,6 +79,7 @@ public partial class World : Node
 	public override void _Ready()
 	{
 		InitializeNoise();
+		InitializeMap();
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -80,7 +89,11 @@ public partial class World : Node
 			GenerateMap();
 		}
 	}
-
+	// 初始化地形数据数组
+	public void InitializeMap()
+	{
+		tileDatas = new TileData[MapDimensions.X, MapDimensions.Y];
+	}
 	// 初始化噪声
 	public void InitializeNoise()
 	{
