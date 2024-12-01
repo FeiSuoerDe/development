@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://wruqqkbtflnj"]
+
+[ext_resource type="Texture2D" uid="uid://b4fy1mglpex0b" path="res://Com/PlayerMap/source/Nature/WinterTrees.png" id="1_1mpvc"]
+[ext_resource type="Script" path="res://Com/PlayerMap/Tree/Tree.cs" id="1_ykt1n"]
+
+[node name="Tree" type="Node2D" node_paths=PackedStringArray("sprite2D")]
+script = ExtResource("1_ykt1n")
+sprite2D = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1mpvc")
+hframes = 4
+vframes = 4
+frame = 1

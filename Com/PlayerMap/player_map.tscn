@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1xkjw3sl7buy"]
+
+[ext_resource type="Script" path="res://Com/PlayerMap/PlayerMap.cs" id="1_kecof"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0bsmn"]
+frequency = 0.001
+metadata/_preview_in_3d_space_ = true
+
+[node name="PlayerMap" type="Node2D" node_paths=PackedStringArray("node2D")]
+script = ExtResource("1_kecof")
+node2D = NodePath("Node2D")
+noise = SubResource("FastNoiseLite_0bsmn")
+
+[node name="Node2D" type="Node2D" parent="."]

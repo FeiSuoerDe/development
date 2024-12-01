@@ -1,0 +1,42 @@
+{
+    "树类名称 TreeClassName": "tree",
+    "物理属性 Physics": {
+        "木材颜色 Color": "#ccc",
+        "每单位重量 Density": 10,
+        "高度 Height": {
+            "最大高度 MaxHeight": 20,
+            "当前高度 CurrentHeight": 0
+        }
+    },
+    "生长属性 GrowthAttributes": {
+        "健康值 HP": 100,
+        "含水量 MoistureContent": 1,
+        "蒸发率(每天) EvaporationRate(Daily)": 0.1,
+        "死亡低温度 DeathLowTemperature": -10,
+        "死亡高温度 DeathHighTemperature": 40,
+        "生长速度 GrowthSpeed": "10",
+        "生长阶段 GrowthStages": {
+            "幼苗 Seedling": 1,
+            "成树 MatureTree": 2
+        },
+        "适宜范围 SuitableRange": "0 10"
+    },
+    "2d贴图属性 Sprite2D": {
+        "贴图路径 Path": "res://Com/PlayerMap/source/Nature/WinterTrees.png",
+        "Animation": {
+            "H": 4,
+            "V": 4,
+            "F": 1
+        }
+    },
+    "产物 Products": {
+        "果实 Fruits": {
+            "产率 Yield": 10,
+            "产物 Product": null
+        },
+        "木材 Timber": {
+            "产率 Yield": 10,
+            "产物 Product": ""
+        }
+    }
+}

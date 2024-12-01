@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3pxmv1o0mif7"]
+
+[ext_resource type="Script" path="res://Com/World/World.cs" id="1_kcpvh"]
+[ext_resource type="Texture2D" uid="uid://cue1ou5vqektk" path="res://Com/World/source/Terr.png" id="2_23dhe"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_q3t6r"]
+frequency = 0.001
+fractal_lacunarity = 3.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6o1rg"]
+texture = ExtResource("2_23dhe")
+texture_region_size = Vector2i(1, 1)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_k4wbl"]
+tile_size = Vector2i(1, 1)
+sources/0 = SubResource("TileSetAtlasSource_6o1rg")
+
+[node name="World" type="Node" node_paths=PackedStringArray("TerrainLayer")]
+script = ExtResource("1_kcpvh")
+TerrainLayer = NodePath("Terr")
+NoiseGenerator = SubResource("FastNoiseLite_q3t6r")
+isRandomSeed = true
+DeepSeaThreshold = -0.33
+SeaThreshold = -0.17
+ShallowWaterThreshold = -0.14
+GrasslandThreshold = 0.32
+HighlandThreshold = 0.48
+RockThreshold = 0.61
+MountainThreshold = 0.69
+SnowMountainThreshold = 0.76
+
+[node name="Terr" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_k4wbl")

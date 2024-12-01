@@ -1,0 +1,119 @@
+[gd_scene load_steps=6 format=3 uid="uid://resi5fowext"]
+
+[ext_resource type="Script" path="res://Com/UI/WorldUI/WorldUi.cs" id="1_dls7y"]
+[ext_resource type="Texture2D" uid="uid://cy84gc0ev8od3" path="res://Com/UI/WorldUI/source/BoxSelector.png" id="2_q3s4w"]
+
+[sub_resource type="Animation" id="Animation_hs3d3"]
+resource_name = "Aspr"
+length = 0.6
+loop_mode = 1
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 2,
+"values": [1, 0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_uyip3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cv6ji"]
+_data = {
+"Aspr": SubResource("Animation_hs3d3"),
+"RESET": SubResource("Animation_uyip3")
+}
+
+[node name="WorldUI" type="Control" node_paths=PackedStringArray("label", "Stard", "Again", "animationPlayer", "sprite2D")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_dls7y")
+label = NodePath("CanvasLayer/Panel/Label")
+Stard = NodePath("CanvasLayer/Panel/Stard")
+Again = NodePath("CanvasLayer/Panel/Again")
+animationPlayer = NodePath("Sprite2D/AnimationPlayer")
+sprite2D = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.924686, 0.997955, 1)
+z_index = 10
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_q3s4w")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_cv6ji")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -103.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Stard" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 480.0
+offset_top = -40.0
+offset_right = 520.0
+offset_bottom = -9.0
+grow_vertical = 0
+mouse_force_pass_scroll_events = false
+text = "开始"
+
+[node name="Again" type="Button" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -40.0
+offset_right = 104.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+text = "重置"
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "请选择一个地块"
