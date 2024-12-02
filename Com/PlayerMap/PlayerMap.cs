@@ -35,7 +35,32 @@ public partial class PlayerMap : Node
 	public override void _Process(double delta)
 	{
 
-		ShowLayer(currentLayer);
+		if (Input.IsActionJustPressed("PgUp"))
+		{
+			if (currentLayer + 1 >= ZNumber)
+			{
+				return;
+			}
+			else
+			{
+				currentLayer += 1;
+				ShowLayer(currentLayer);
+			}
+
+		}
+		if (Input.IsActionJustPressed("PgDn"))
+		{
+			if (currentLayer - 1 == -1)
+			{
+				return;
+			}
+			else
+			{
+				currentLayer -= 1;
+				ShowLayer(currentLayer);
+			}
+		}
+
 
 	}
 	public override void _Ready()
@@ -45,6 +70,8 @@ public partial class PlayerMap : Node
 		MakeMap();
 		setCamera();
 		HideLayer();
+		ShowLayer(currentLayer);
+
 	}
 	// layer隐藏
 	public void HideLayer()
@@ -53,21 +80,33 @@ public partial class PlayerMap : Node
 		{
 			node2D.GetChild<TileMapLayer>(i).Visible = false;
 		}
+		// node2D.GetChild<TileMapLayer>(ZNumber / 2).Visible = true;
 	}
 	// layre显示
 	public void ShowLayer(int layer)
 	{
-		for (int i = 0; i < ZNumber; i++)
+		GD.Print(layer);
+		if (layer < ZNumber - 1)
 		{
-			node2D.GetChild<TileMapLayer>(i).Visible = false;
+			node2D.GetChild<TileMapLayer>(layer + 1).Visible = false;
+			node2D.GetChild<TileMapLayer>(layer - 1).Visible = false;
+			node2D.GetChild<TileMapLayer>(layer).Visible = true;
 		}
-		node2D.GetChild<TileMapLayer>(layer).Visible = true;
+		else
+		{
+			node2D.GetChild<TileMapLayer>(layer - 1).Visible = false;
+			node2D.GetChild<TileMapLayer>(layer).Visible = true;
+		}
+
+
+
+
 	}
 	public void setCamera()
 	{
 		Node2D parent = GetParent() as Node2D; // 获取父节点
 		Camera camera = parent.GetNode<Camera>("Camera"); // 获取世界节点
-		camera.GetNode<Camera2D>("Camera2D").Position = new Vector2(6272, 6272);
+		camera.GetNode<Camera2D>("Camera2D").Position = new Vector2(1600, 1600);
 		camera.GetNode<Camera2D>("Camera2D").Zoom = new Vector2(0.1f, 0.1f);
 	}
 	public float[,,] MapData;
