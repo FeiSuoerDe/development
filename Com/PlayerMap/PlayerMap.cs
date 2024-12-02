@@ -27,12 +27,41 @@ public partial class PlayerMap : Node
 	public Vector2I MapSize = new Vector2I(200, 200);
 	[Export]
 	public int ZNumber = 20;
+	// 当前层级
+	private int currentLayer = 0;
+
+
+
+	public override void _Process(double delta)
+	{
+
+		ShowLayer(currentLayer);
+
+	}
 	public override void _Ready()
 	{
 		// Called every time the node is added to the scene.
 		// Initialization here
 		MakeMap();
 		setCamera();
+		HideLayer();
+	}
+	// layer隐藏
+	public void HideLayer()
+	{
+		for (int i = 0; i < ZNumber; i++)
+		{
+			node2D.GetChild<TileMapLayer>(i).Visible = false;
+		}
+	}
+	// layre显示
+	public void ShowLayer(int layer)
+	{
+		for (int i = 0; i < ZNumber; i++)
+		{
+			node2D.GetChild<TileMapLayer>(i).Visible = false;
+		}
+		node2D.GetChild<TileMapLayer>(layer).Visible = true;
 	}
 	public void setCamera()
 	{
