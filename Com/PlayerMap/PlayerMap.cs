@@ -24,7 +24,7 @@ public partial class PlayerMap : Node
 	public TilesData tilesData { get; set; }
 
 	// public Vector2I MapSize = new Vector2I(784, 784);
-	public Vector2I MapSize = new Vector2I(100, 100);
+	public Vector2I MapSize = new Vector2I(200, 200);
 	[Export]
 	public int ZNumber = 20;
 	public override void _Ready()
