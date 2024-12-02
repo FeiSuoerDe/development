@@ -23,7 +23,8 @@ public partial class PlayerMap : Node
 	// 地下水含量、植被密度
 	public TilesData tilesData { get; set; }
 
-	public Vector2I MapSize = new Vector2I(784, 784);
+	// public Vector2I MapSize = new Vector2I(784, 784);
+	public Vector2I MapSize = new Vector2I(100, 100);
 	[Export]
 	public int ZNumber = 20;
 	public override void _Ready()
@@ -68,9 +69,35 @@ public partial class PlayerMap : Node
 		{
 			PackedScene tileMapLayer = GD.Load<PackedScene>("res://Com/PlayerMap/tile_map_layer.tscn");
 			var tileMapLayerInstance = tileMapLayer.Instantiate<TileMapLayer>();
-			tileMapLayerInstance.Name = "Layer" + x;
+			tileMapLayerInstance.Name = "" + (x - ZNumber / 2);
 			node2D.AddChild(tileMapLayerInstance);
+		}
+		setLayer0();
+	}
 
+	private void setLayer0()
+	{
+
+		for (int z = 0; z < ZNumber; z++)
+		{
+			TileMapLayer layer0 = node2D.GetChild<TileMapLayer>(z);
+
+			for (int x = 0; x < MapSize.X; x++)
+			{
+				for (int y = 0; y < MapSize.Y; y++)
+				{
+					float a = MapData[x, y, z];
+					if (a >= 0 && a <= 1)
+					{
+
+						layer0.SetCell(new Vector2I(x, y), 0, new Vector2I(1, 0));
+					}
+					else
+					{
+						layer0.SetCell(new Vector2I(x, y), 0, new Vector2I(0, 0));
+					}
+				}
+			}
 		}
 	}
 
