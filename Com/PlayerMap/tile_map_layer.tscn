@@ -3,6 +3,5 @@
 [ext_resource type="TileSet" uid="uid://cob6i5ntbfcba" path="res://Com/PlayerMap/TileSet/new_tile_set.tres" id="1_h5b1p"]
 
 [node name="TileMapLayer" type="TileMapLayer"]
-modulate = Color(1, 1, 1, 0.4)
 tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0)
 tile_set = ExtResource("1_h5b1p")
