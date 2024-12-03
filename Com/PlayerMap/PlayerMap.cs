@@ -25,7 +25,7 @@ public partial class PlayerMap : Node
 	public TilesData tilesData { get; set; } // 地块数据，包含地形和环境信息
 
 	// public Vector2I MapSize = new Vector2I(784, 784);
-	public Vector2I MapSize = new Vector2I(200, 200); // 地图尺寸（宽度，高度）
+	public Vector2I MapSize = new Vector2I(400, 400); // 地图尺寸（宽度，高度）
 	[Export]
 	public int ZNumber = 20; // 地图的层数（深度）
 							 // 当前层级
@@ -77,7 +77,7 @@ public partial class PlayerMap : Node
 	// 显示指定的层级
 	public void ShowLayer(int layer)
 	{
-		GD.Print(layer); // 输出当前层级
+		GD.Print(node2D.GetChild<TileMapLayer>(layer).Name); // 输出当前层级
 		if (layer >= 0 && layer < ZNumber)
 		{
 			// 隐藏所有层级
@@ -112,7 +112,10 @@ public partial class PlayerMap : Node
 			{
 				for (int z = 0; z < ZNumber; z++)
 				{
-					MapData[x, y, z] = noise.GetNoise3D(x, y, z); // 获取噪声值
+					// 1,2,3->1,3,5
+
+
+					MapData[x, y, z] = noise.GetNoise3D(x, y, z * 3); // 获取噪声值
 				}
 			}
 		}
@@ -152,7 +155,16 @@ public partial class PlayerMap : Node
 					}
 					else
 					{
-						layer0.SetCell(cellPosition, 0, new Vector2I(0, 0));
+						if (z < ZNumber / 2)
+						{
+							layer0.SetCell(cellPosition, 1, new Vector2I(4, 0));
+						}
+						else
+						{
+
+
+							layer0.SetCell(cellPosition, 1, new Vector2I(2, 0));
+						}
 					}
 				}
 			}
