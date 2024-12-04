@@ -1,4 +1,5 @@
 using Godot;
+using System;
 using System.Text.Json;
 
 public partial class Tree : Node2D
@@ -9,7 +10,7 @@ public partial class Tree : Node2D
 
     // 物理属性
     // 类名
-    public string ClassName { get; set; }   // 类名，用于标识树的类型
+    public string TreeClassName { get; set; }   // 类名，用于标识树的类型
     public string Color { get; set; }       // 颜色，表示树的颜色
     public float Density { get; set; }      // 密度，影响树的物理碰撞和重量
     public float MaxHeight { get; set; }    // 最大高度，树能生长到的最大高度
@@ -63,6 +64,9 @@ public partial class Tree : Node2D
         SetSprite2D();
         LoadDataFromJson();
     }
-
+    public String ToString()
+    {
+        return $"TreeClassName: {TreeClassName}, Color: {Color}, Density: {Density}, MaxHeight: {MaxHeight}, CurrentHeight: {CurrentHeight}, HP: {HP}, MoistureContent: {MoistureContent}, EvaporationRate: {EvaporationRate}, DeathLowTemperature: {DeathLowTemperature}, DeathHighTemperature: {DeathHighTemperature}, GrowthSpeed: {GrowthSpeed}, SuitableRange: {SuitableRange}, AnimationH: {AnimationH}, AnimationV: {AnimationV}, AnimationF: {AnimationF}, SpritePath: {SpritePath}, JsonPath: {JsonPath}";
+    }
 
 }

@@ -55,7 +55,7 @@ public partial class PlayerMap : Node
 	}
 	public override void _Ready()
 	{
-		GD.Print(new MarkeMap_tree().tree.ClassName);
+		GD.Print(new MarkeMap_tree().tree.ToString());
 		// Called every time the node is added to the scene.
 		// Initialization here
 		MakeMap();        // 生成地图数据和层级
