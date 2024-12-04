@@ -55,13 +55,13 @@ public partial class PlayerMap : Node
 	}
 	public override void _Ready()
 	{
+		GD.Print(new MarkeMap_tree().tree.ClassName);
 		// Called every time the node is added to the scene.
 		// Initialization here
 		MakeMap();        // 生成地图数据和层级
 		setCamera();      // 设置相机位置和缩放
 		HideLayer();      // 隐藏所有层级
 		ShowLayer(currentLayer); // 显示当前层级
-
 	}
 	// layer隐藏
 	// 隐藏所有层级

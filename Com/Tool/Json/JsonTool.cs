@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+
 public class JsonTool
 {
 
@@ -10,7 +11,5 @@ public class JsonTool
         string jsonStr = "";
         jsonStr = File.ReadAllText(path);
         return jsonStr;
-
-
     }
 }
