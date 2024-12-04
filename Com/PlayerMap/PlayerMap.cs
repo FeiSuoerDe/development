@@ -25,7 +25,7 @@ public partial class PlayerMap : Node
 	public TilesData tilesData { get; set; } // 地块数据，包含地形和环境信息
 
 	// public Vector2I MapSize = new Vector2I(784, 784);
-	public Vector2I MapSize = new Vector2I(400, 400); // 地图尺寸（宽度，高度）
+	public Vector2I MapSize = new Vector2I(100, 100); // 地图尺寸（宽度，高度）
 	[Export]
 	public int ZNumber = 20; // 地图的层数（深度）
 							 // 当前层级
@@ -55,13 +55,14 @@ public partial class PlayerMap : Node
 	}
 	public override void _Ready()
 	{
-		GD.Print(new MarkeMap_tree().tree.ToString());
-		// Called every time the node is added to the scene.
-		// Initialization here
+
+
 		MakeMap();        // 生成地图数据和层级
 		setCamera();      // 设置相机位置和缩放
 		HideLayer();      // 隐藏所有层级
 		ShowLayer(currentLayer); // 显示当前层级
+		MarkeMap_tree mt = new MarkeMap_tree();
+		GD.Print(mt.tree.Physics.Color);
 	}
 	// layer隐藏
 	// 隐藏所有层级
