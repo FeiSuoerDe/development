@@ -14,7 +14,7 @@
         "EvaporationRate(Daily)": 0.1,
         "DeathLowTemperature": -10,
         "DeathHighTemperature": 40,
-        "GrowthSpeed": "10",
+        "GrowthSpeed": 10,
         "GrowthStages": {
             "Seedling": 1,
             "MatureTree": 2

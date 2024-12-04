@@ -42,7 +42,7 @@ public partial class Tree : Node2D
             public int Seedling { get; set; }    // 幼苗阶段
             public int MatureTree { get; set; }  // 成熟树阶段
         }
-        public float[] SuitableRange { get; set; }   // 适宜生长的温度范围
+        public string SuitableRange { get; set; }   // 适宜生长的温度范围
     }
 
     public Sprite2DClass Sprite2D { get; set; }  // 精灵2D
@@ -81,6 +81,32 @@ public partial class Tree : Node2D
     {
 
         SetSprite2D();
+    }
+
+    // 输出所有的属性
+    public void PrintAllProperties()
+    {
+        GD.Print("TreeClassName: " + TreeClassName);
+        GD.Print("Color: " + Physics.Color);
+        GD.Print("Density: " + Physics.Density);
+        GD.Print("MaxHeight: " + Physics.Height.MaxHeight);
+        GD.Print("CurrentHeight: " + Physics.Height.CurrentHeight);
+        GD.Print("HP: " + GrowthAttributes.HP);
+        GD.Print("MoistureContent: " + GrowthAttributes.MoistureContent);
+        GD.Print("EvaporationRate: " + GrowthAttributes.EvaporationRate);
+        GD.Print("DeathLowTemperature: " + GrowthAttributes.DeathLowTemperature);
+        GD.Print("DeathHighTemperature: " + GrowthAttributes.DeathHighTemperature);
+        GD.Print("GrowthSpeed: " + GrowthAttributes.GrowthSpeed);
+        GD.Print("Seedling: " + GrowthAttributes.GrowthStages.Seedling);
+        GD.Print("MatureTree: " + GrowthAttributes.GrowthStages.MatureTree);
+        GD.Print("Min: " + GrowthAttributes.SuitableRange[0]);
+        GD.Print("Max: " + GrowthAttributes.SuitableRange[1]);
+        GD.Print("Path: " + Sprite2D.Path);
+        GD.Print("H: " + Sprite2D.Animation.H);
+        GD.Print("V: " + Sprite2D.Animation.V);
+        GD.Print("F: " + Sprite2D.Animation.F);
+        GD.Print("SpritePath: " + SpritePath);
+        GD.Print("JsonPath: " + JsonPath);
     }
 
 }

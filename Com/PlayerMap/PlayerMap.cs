@@ -62,7 +62,7 @@ public partial class PlayerMap : Node
 		HideLayer();      // 隐藏所有层级
 		ShowLayer(currentLayer); // 显示当前层级
 		MarkeMap_tree mt = new MarkeMap_tree();
-		GD.Print(mt.tree.Physics.Color);
+		mt.tree.PrintAllProperties();
 	}
 	// layer隐藏
 	// 隐藏所有层级
