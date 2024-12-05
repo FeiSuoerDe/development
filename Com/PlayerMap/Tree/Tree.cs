@@ -2,7 +2,44 @@ using Godot;
 using System;
 using System.Text.Json;
 
-public partial class Tree : Node2D
+public partial class  Tree : Node2D
+{
+    public TreeCfg cfg;
+
+    // 2D贴图属性
+    public string SpritePath { get; set; }  // 精灵贴图的资源路径
+
+    // jsonPath
+    public string JsonPath { get; set; }  // json文件的路径
+
+    public void SetSprite2D()
+    {
+        cfg.sprite2D = GetNode<Sprite2D>("Sprite2D");
+        GD.Print(cfg.S2D);
+        GD.Print(cfg.S2D.Animation);
+        GD.Print(cfg.S2D.Animation.H);
+
+        // 初始化压缩纹理并加载纹理资源
+        cfg.compressedTexture2D = new CompressedTexture2D();
+        cfg.compressedTexture2D.Load(SpritePath);
+        cfg.sprite2D.Texture = cfg.compressedTexture2D;
+        // 设置精灵的动画帧参数
+        cfg.sprite2D.Hframes = cfg.S2D.Animation.H;  // 设置横向帧数
+        cfg.sprite2D.Vframes = cfg.S2D.Animation.V;  // 设置纵向帧数
+        cfg.sprite2D.Frame = cfg.S2D.Animation.F;    // 设置当前帧
+    }
+    public override void _Ready()
+    {
+    }
+
+    public void Setup(TreeCfg cfg)
+    {
+        this.cfg = cfg;
+        SetSprite2D();
+    }
+}
+
+public class TreeCfg
 {
     public Sprite2D sprite2D; // 树的精灵节点，用于呈现树的图像
     public CompressedTexture2D compressedTexture2D { get; set; }  // 压缩纹理，用于加载树的纹理资源
@@ -57,35 +94,6 @@ public partial class Tree : Node2D
         }
     }
 
-
-
-    // 2D贴图属性
-    public string SpritePath { get; set; }  // 精灵贴图的资源路径
-
-    // jsonPath
-    public string JsonPath { get; set; }  // json文件的路径
-
-    public void SetSprite2D()
-    {
-        sprite2D = GetNode<Sprite2D>("Sprite2D");
-        GD.Print(S2D.Animation.H);
-
-        // 初始化压缩纹理并加载纹理资源
-        compressedTexture2D = new CompressedTexture2D();
-        compressedTexture2D.Load(SpritePath);
-        sprite2D.Texture = compressedTexture2D;
-        // 设置精灵的动画帧参数
-        sprite2D.Hframes = S2D.Animation.H;  // 设置横向帧数
-        sprite2D.Vframes = S2D.Animation.V;  // 设置纵向帧数
-        sprite2D.Frame = S2D.Animation.F;    // 设置当前帧
-    }
-    public override void _Ready()
-    {
-
-
-        SetSprite2D();
-    }
-
     // 返回所有值
     public string GetAllValues()
     {
@@ -108,8 +116,6 @@ public partial class Tree : Node2D
         values += $"Sprite2D.Animation.H: {S2D.Animation.H}\n";
         values += $"Sprite2D.Animation.V: {S2D.Animation.V}\n";
         values += $"Sprite2D.Animation.F: {S2D.Animation.F}\n";
-        values += $"SpritePath: {SpritePath}\n";
-        values += $"JsonPath: {JsonPath}\n";
         return values;
     }
 }
