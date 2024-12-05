@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Text.Json;
 
-public partial class  Tree : Node2D
+public partial class Tree : Node2D
 {
     public TreeCfg cfg;
 
@@ -20,9 +20,9 @@ public partial class  Tree : Node2D
         GD.Print(cfg.S2D.Animation.H);
 
         // 初始化压缩纹理并加载纹理资源
-        cfg.compressedTexture2D = new CompressedTexture2D();
-        cfg.compressedTexture2D.Load(SpritePath);
-        cfg.sprite2D.Texture = cfg.compressedTexture2D;
+        // cfg.compressedTexture2D = new CompressedTexture2D();
+        // cfg.compressedTexture2D.Load(SpritePath);
+        // cfg.sprite2D.Texture = cfg.compressedTexture2D;
         // 设置精灵的动画帧参数
         cfg.sprite2D.Hframes = cfg.S2D.Animation.H;  // 设置横向帧数
         cfg.sprite2D.Vframes = cfg.S2D.Animation.V;  // 设置纵向帧数
