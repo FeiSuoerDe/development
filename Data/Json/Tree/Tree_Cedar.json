@@ -1,5 +1,5 @@
 {
-    "TreeClassName": "Oak",
+    "TreeClassName": "Cedar",
     "Physics": {
         "Color": "#ccc",
         "Density": 10,
@@ -26,7 +26,7 @@
         "Animation": {
             "H": 4,
             "V": 4,
-            "F": 1
+            "F": 5
         }
     },
     "Products": {
