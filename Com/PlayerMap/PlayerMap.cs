@@ -170,18 +170,11 @@ public partial class PlayerMap : Node
 
 	public void SetTree()
 	{
-		MarkeMap_tree mt = new MarkeMap_tree();
-
-		Tree trees = mt.Oaktree;
-		// res://Com/PlayerMap/Tree/tree.tscn
+        // res://Com/PlayerMap/Tree/tree.tscn
 		PackedScene tree = GD.Load<PackedScene>("res://Com/PlayerMap/Tree/tree.tscn");
 		var treeInstance = tree.Instantiate<Tree>();
-		treeInstance.GrowthAttributes = trees.GrowthAttributes;
 		AddChild(treeInstance);
-	}
-
-
-
-
-
+        MarkeMap_tree mt = new MarkeMap_tree();
+		treeInstance.Setup(mt.Oaktree);
+    }
 }

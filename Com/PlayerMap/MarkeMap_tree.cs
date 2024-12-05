@@ -1,3 +1,4 @@
+using Godot;
 using System;
 using System.Dynamic;
 using System.Text.Json;
@@ -10,7 +11,7 @@ public partial class MarkeMap_tree
         MarkeTree();
         AssignValues();
     }
-    public Tree Oaktree = new Tree();
+    public TreeCfg Oaktree;
     String jsonStr;
     public void MarkeTree()
     {
@@ -19,8 +20,7 @@ public partial class MarkeMap_tree
     // 赋值
     public void AssignValues()
     {
-        Oaktree = JsonSerializer.Deserialize<Tree>(jsonStr);
-
+        Oaktree = JsonSerializer.Deserialize<TreeCfg>(jsonStr);
     }
 
 
