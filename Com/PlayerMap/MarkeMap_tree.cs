@@ -1,4 +1,5 @@
 using System;
+using System.Dynamic;
 using System.Text.Json;
 
 public partial class MarkeMap_tree
@@ -9,7 +10,7 @@ public partial class MarkeMap_tree
         MarkeTree();
         AssignValues();
     }
-    public Tree tree = new Tree();
+    public Tree Oaktree = new Tree();
     String jsonStr;
     public void MarkeTree()
     {
@@ -18,13 +19,10 @@ public partial class MarkeMap_tree
     // 赋值
     public void AssignValues()
     {
-        // tree.ClassName = ExtractAttributes("TreeClassName");
-        tree = JsonSerializer.Deserialize<Tree>(jsonStr);
+        Oaktree = JsonSerializer.Deserialize<Tree>(jsonStr);
 
     }
 
-    public string toStringTree()
-    {
-        return tree.ToString();
-    }
+
+
 }

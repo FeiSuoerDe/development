@@ -1,8 +1,6 @@
+using System.Security.Cryptography.X509Certificates;
 using Godot;
-using System;
-using System.Data;
-using System.Dynamic;
-using System.Threading.Tasks; // 引入并行处理命名空间
+
 
 public partial class PlayerMap : Node
 {
@@ -29,7 +27,7 @@ public partial class PlayerMap : Node
 	[Export]
 	public int ZNumber = 20; // 地图的层数（深度）
 							 // 当前层级
-	private int currentLayer = 0; // 当前显示的层级
+	private int currentLayer; // 当前显示的层级
 
 
 
@@ -60,19 +58,19 @@ public partial class PlayerMap : Node
 		MakeMap();        // 生成地图数据和层级
 		setCamera();      // 设置相机位置和缩放
 		HideLayer();      // 隐藏所有层级
+		currentLayer = ZNumber - 1;
 		ShowLayer(currentLayer); // 显示当前层级
-		MarkeMap_tree mt = new MarkeMap_tree();
-		mt.tree.PrintAllProperties();
+
 	}
 	// layer隐藏
 	// 隐藏所有层级
 	public void HideLayer()
 	{
+
 		for (int i = 0; i < ZNumber; i++)
 		{
 			node2D.GetChild<TileMapLayer>(i).Visible = false; // 设置层级不可见
 		}
-		// node2D.GetChild<TileMapLayer>(ZNumber / 2).Visible = true;
 	}
 	// layre显示
 	// 显示指定的层级
@@ -113,7 +111,6 @@ public partial class PlayerMap : Node
 			{
 				for (int z = 0; z < ZNumber; z++)
 				{
-					// 1,2,3->1,3,5
 
 
 					MapData[x, y, z] = noise.GetNoise3D(x, y, z * 3); // 获取噪声值
@@ -162,16 +159,26 @@ public partial class PlayerMap : Node
 						}
 						else
 						{
-
-
 							layer0.SetCell(cellPosition, 1, new Vector2I(2, 0));
 						}
 					}
 				}
 			}
 		}
+		SetTree();
 	}
 
+	public void SetTree()
+	{
+		MarkeMap_tree mt = new MarkeMap_tree();
+
+		Tree trees = mt.Oaktree;
+		// res://Com/PlayerMap/Tree/tree.tscn
+		PackedScene tree = GD.Load<PackedScene>("res://Com/PlayerMap/Tree/tree.tscn");
+		var treeInstance = tree.Instantiate<Tree>();
+		treeInstance.GrowthAttributes = trees.GrowthAttributes;
+		AddChild(treeInstance);
+	}
 
 
 

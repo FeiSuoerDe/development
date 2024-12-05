@@ -21,12 +21,12 @@
         },
         "SuitableRange": "0 10"
     },
-    "Sprite2D": {
+    "S2D": {
         "Path": "res://Com/PlayerMap/source/Nature/WinterTrees.png",
         "Animation": {
             "H": 4,
             "V": 4,
-            "F": 1
+            "F": 3
         }
     },
     "Products": {

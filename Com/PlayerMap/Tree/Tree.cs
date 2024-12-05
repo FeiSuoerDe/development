@@ -4,8 +4,7 @@ using System.Text.Json;
 
 public partial class Tree : Node2D
 {
-    [Export]
-    public Sprite2D sprite2D { get; set; }  // 树的精灵节点，用于呈现树的图像
+    public Sprite2D sprite2D; // 树的精灵节点，用于呈现树的图像
     public CompressedTexture2D compressedTexture2D { get; set; }  // 压缩纹理，用于加载树的纹理资源
 
     // 物理属性
@@ -45,7 +44,7 @@ public partial class Tree : Node2D
         public string SuitableRange { get; set; }   // 适宜生长的温度范围
     }
 
-    public Sprite2DClass Sprite2D { get; set; }  // 精灵2D
+    public Sprite2DClass S2D { get; set; }  // 精灵2D
     public class Sprite2DClass
     {
         public string Path { get; set; }
@@ -68,45 +67,49 @@ public partial class Tree : Node2D
 
     public void SetSprite2D()
     {
+        sprite2D = GetNode<Sprite2D>("Sprite2D");
+        GD.Print(S2D.Animation.H);
+
         // 初始化压缩纹理并加载纹理资源
         compressedTexture2D = new CompressedTexture2D();
         compressedTexture2D.Load(SpritePath);
-
+        sprite2D.Texture = compressedTexture2D;
         // 设置精灵的动画帧参数
-        sprite2D.Hframes = Sprite2D.Animation.H;  // 设置横向帧数
-        sprite2D.Vframes = Sprite2D.Animation.V;  // 设置纵向帧数
-        sprite2D.Frame = Sprite2D.Animation.F;    // 设置当前帧
+        sprite2D.Hframes = S2D.Animation.H;  // 设置横向帧数
+        sprite2D.Vframes = S2D.Animation.V;  // 设置纵向帧数
+        sprite2D.Frame = S2D.Animation.F;    // 设置当前帧
     }
     public override void _Ready()
     {
 
+
         SetSprite2D();
     }
 
-    // 输出所有的属性
-    public void PrintAllProperties()
+    // 返回所有值
+    public string GetAllValues()
     {
-        GD.Print("TreeClassName: " + TreeClassName);
-        GD.Print("Color: " + Physics.Color);
-        GD.Print("Density: " + Physics.Density);
-        GD.Print("MaxHeight: " + Physics.Height.MaxHeight);
-        GD.Print("CurrentHeight: " + Physics.Height.CurrentHeight);
-        GD.Print("HP: " + GrowthAttributes.HP);
-        GD.Print("MoistureContent: " + GrowthAttributes.MoistureContent);
-        GD.Print("EvaporationRate: " + GrowthAttributes.EvaporationRate);
-        GD.Print("DeathLowTemperature: " + GrowthAttributes.DeathLowTemperature);
-        GD.Print("DeathHighTemperature: " + GrowthAttributes.DeathHighTemperature);
-        GD.Print("GrowthSpeed: " + GrowthAttributes.GrowthSpeed);
-        GD.Print("Seedling: " + GrowthAttributes.GrowthStages.Seedling);
-        GD.Print("MatureTree: " + GrowthAttributes.GrowthStages.MatureTree);
-        GD.Print("Min: " + GrowthAttributes.SuitableRange[0]);
-        GD.Print("Max: " + GrowthAttributes.SuitableRange[1]);
-        GD.Print("Path: " + Sprite2D.Path);
-        GD.Print("H: " + Sprite2D.Animation.H);
-        GD.Print("V: " + Sprite2D.Animation.V);
-        GD.Print("F: " + Sprite2D.Animation.F);
-        GD.Print("SpritePath: " + SpritePath);
-        GD.Print("JsonPath: " + JsonPath);
+        string values = "";
+        values += $"TreeClassName: {TreeClassName}\n";
+        values += $"Physics.Color: {Physics.Color}\n";
+        values += $"Physics.Density: {Physics.Density}\n";
+        values += $"Physics.Height.MaxHeight: {Physics.Height.MaxHeight}\n";
+        values += $"Physics.Height.CurrentHeight: {Physics.Height.CurrentHeight}\n";
+        values += $"GrowthAttributes.HP: {GrowthAttributes.HP}\n";
+        values += $"GrowthAttributes.MoistureContent: {GrowthAttributes.MoistureContent}\n";
+        values += $"GrowthAttributes.EvaporationRate: {GrowthAttributes.EvaporationRate}\n";
+        values += $"GrowthAttributes.DeathLowTemperature: {GrowthAttributes.DeathLowTemperature}\n";
+        values += $"GrowthAttributes.DeathHighTemperature: {GrowthAttributes.DeathHighTemperature}\n";
+        values += $"GrowthAttributes.GrowthSpeed: {GrowthAttributes.GrowthSpeed}\n";
+        values += $"GrowthAttributes.GrowthStages.Seedling: {GrowthAttributes.GrowthStages.Seedling}\n";
+        values += $"GrowthAttributes.GrowthStages.MatureTree: {GrowthAttributes.GrowthStages.MatureTree}\n";
+        values += $"GrowthAttributes.SuitableRange: {GrowthAttributes.SuitableRange}\n";
+        values += $"Sprite2D.Path: {S2D.Path}\n";
+        values += $"Sprite2D.Animation.H: {S2D.Animation.H}\n";
+        values += $"Sprite2D.Animation.V: {S2D.Animation.V}\n";
+        values += $"Sprite2D.Animation.F: {S2D.Animation.F}\n";
+        values += $"SpritePath: {SpritePath}\n";
+        values += $"JsonPath: {JsonPath}\n";
+        return values;
     }
-
 }
