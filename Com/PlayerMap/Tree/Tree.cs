@@ -15,9 +15,7 @@ public partial class Tree : Node2D
     public void SetSprite2D()
     {
         cfg.sprite2D = GetNode<Sprite2D>("Sprite2D");
-        GD.Print(cfg.S2D);
-        GD.Print(cfg.S2D.Animation);
-        GD.Print(cfg.S2D.Animation.H);
+
         // 设置精灵的动画帧参数
         cfg.sprite2D.Hframes = cfg.S2D.Animation.H;  // 设置横向帧数
         cfg.sprite2D.Vframes = cfg.S2D.Animation.V;  // 设置纵向帧数

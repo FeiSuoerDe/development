@@ -1,4 +1,154 @@
-[gd_scene format=3 uid="uid://h8ypoy1h4u4t"]
+[gd_scene load_steps=16 format=4 uid="uid://c8y2fiu3tfv6s"]
+
+[ext_resource type="Texture2D" uid="uid://dmleq8bjh810l" path="res://Com/PlayerMap/source/Ground/Cliff-Water.png" id="1_bpb31"]
+[ext_resource type="Texture2D" uid="uid://vtd1iplohhap" path="res://Com/PlayerMap/source/Ground/Cliff.png" id="2_4iri5"]
+[ext_resource type="Texture2D" uid="uid://cvs6fvt7iqpq2" path="res://Com/PlayerMap/source/Ground/DeadGrass.png" id="3_1k0x7"]
+[ext_resource type="Texture2D" uid="uid://47g4ovbdi21x" path="res://Com/PlayerMap/source/Ground/Grass.png" id="4_hyj6d"]
+[ext_resource type="Texture2D" uid="uid://c10dhiumfb5gs" path="res://Com/PlayerMap/source/Ground/Shore.png" id="5_83rs1"]
+[ext_resource type="Texture2D" uid="uid://ckhwicv4lhfpm" path="res://Com/PlayerMap/source/Ground/TexturedGrass.png" id="6_45lhe"]
+[ext_resource type="Texture2D" uid="uid://bvrb8x7knl4y6" path="res://Com/PlayerMap/source/Ground/Winter.png" id="7_anbwp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cmve5"]
+texture = ExtResource("1_bpb31")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1w8g2"]
+texture = ExtResource("2_4iri5")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k0mep"]
+texture = ExtResource("3_1k0x7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1inij"]
+texture = ExtResource("4_hyj6d")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lvuc"]
+texture = ExtResource("5_83rs1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hgrac"]
+texture = ExtResource("6_45lhe")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_px17w"]
+texture = ExtResource("7_anbwp")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_1eugg"]
+sources/0 = SubResource("TileSetAtlasSource_cmve5")
+sources/1 = SubResource("TileSetAtlasSource_1w8g2")
+sources/2 = SubResource("TileSetAtlasSource_k0mep")
+sources/3 = SubResource("TileSetAtlasSource_1inij")
+sources/4 = SubResource("TileSetAtlasSource_4lvuc")
+sources/5 = SubResource("TileSetAtlasSource_hgrac")
+sources/6 = SubResource("TileSetAtlasSource_px17w")
 
 [node name="TileMapLayer" type="TileMapLayer"]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 254, 255, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD+////BQABAAEAAAD/////BQACAAEAAAD///7/BQACAAAAAAD9//7/BQAAAAAAAAD9////BQAAAAEAAAD+//7/BQABAAAAAAA=")
+tile_set = SubResource("TileSet_1eugg")

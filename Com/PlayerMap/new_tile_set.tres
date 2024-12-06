@@ -1,0 +1,117 @@
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://dmi5fdhx03hx1"]
+
+[ext_resource type="Texture2D" uid="uid://bpal6lv3nj7ow" path="res://Com/PlayerMap/source/Nature/Cactus.png" id="1_x6icu"]
+[ext_resource type="Texture2D" uid="uid://q56u0ij7iiop" path="res://Com/PlayerMap/source/Nature/CoconutTrees.png" id="2_5gjdp"]
+[ext_resource type="Texture2D" uid="uid://csd0im7qq8fux" path="res://Com/PlayerMap/source/Nature/DeadTrees.png" id="3_i1pgw"]
+[ext_resource type="Texture2D" uid="uid://c0nqcshgqap5g" path="res://Com/PlayerMap/source/Nature/PineTrees.png" id="4_v2in7"]
+[ext_resource type="Texture2D" uid="uid://p8fyiiu6ri55" path="res://Com/PlayerMap/source/Nature/Rocks.png" id="5_4jp2h"]
+[ext_resource type="Texture2D" uid="uid://8hxxwoan7v0o" path="res://Com/PlayerMap/source/Nature/Trees.png" id="6_5wnsr"]
+[ext_resource type="Texture2D" uid="uid://csq04nwl606aq" path="res://Com/PlayerMap/source/Nature/Tumbleweed.png" id="7_a66fs"]
+[ext_resource type="Texture2D" uid="uid://bpqno36h5bp72" path="res://Com/PlayerMap/source/Nature/Wheatfield.png" id="8_poky0"]
+[ext_resource type="Texture2D" uid="uid://b1jkxpkfj5to5" path="res://Com/PlayerMap/source/Nature/WinterDeadTrees.png" id="9_w7rku"]
+[ext_resource type="Texture2D" uid="uid://b4fy1mglpex0b" path="res://Com/PlayerMap/source/Nature/WinterTrees.png" id="10_jxxkc"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bxabu"]
+texture = ExtResource("1_x6icu")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4doq"]
+texture = ExtResource("2_5gjdp")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ewkn1"]
+texture = ExtResource("3_i1pgw")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8d67"]
+texture = ExtResource("4_v2in7")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3pdhq"]
+texture = ExtResource("5_4jp2h")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scds0"]
+texture = ExtResource("6_5wnsr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynw27"]
+texture = ExtResource("7_a66fs")
+0:0/0 = 0
+1:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amedd"]
+texture = ExtResource("8_poky0")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t6wux"]
+texture = ExtResource("9_w7rku")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q8tu1"]
+texture = ExtResource("10_jxxkc")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_bxabu")
+sources/1 = SubResource("TileSetAtlasSource_i4doq")
+sources/2 = SubResource("TileSetAtlasSource_ewkn1")
+sources/3 = SubResource("TileSetAtlasSource_j8d67")
+sources/4 = SubResource("TileSetAtlasSource_3pdhq")
+sources/5 = SubResource("TileSetAtlasSource_scds0")
+sources/6 = SubResource("TileSetAtlasSource_ynw27")
+sources/7 = SubResource("TileSetAtlasSource_amedd")
+sources/8 = SubResource("TileSetAtlasSource_t6wux")
+sources/9 = SubResource("TileSetAtlasSource_q8tu1")

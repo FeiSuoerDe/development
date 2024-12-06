@@ -1,3 +1,4 @@
+using System;
 using System.Security.Cryptography.X509Certificates;
 using Godot;
 
@@ -76,7 +77,6 @@ public partial class PlayerMap : Node
 	// 显示指定的层级
 	public void ShowLayer(int layer)
 	{
-		GD.Print(node2D.GetChild<TileMapLayer>(layer).Name); // 输出当前层级
 		if (layer >= 0 && layer < ZNumber)
 		{
 			// 隐藏所有层级
@@ -137,6 +137,7 @@ public partial class PlayerMap : Node
 	private void setLayer0()
 	{
 
+		Random random = new Random();
 		for (int z = 0; z < ZNumber; z++)
 		{
 			TileMapLayer layer0 = node2D.GetChild<TileMapLayer>(z); // 获取层级节点
@@ -148,18 +149,24 @@ public partial class PlayerMap : Node
 					Vector2I cellPosition = new Vector2I(x, y); // 当前瓦片的位置
 					if (a >= 0 && a <= 1)
 					{
+						// 0-2的随机数
+
+
+
 						// 根据噪声值设置瓦片索引
-						layer0.SetCell(cellPosition, 0, new Vector2I(1, 0));
+						layer0.SetCell(cellPosition, 5, new Vector2I(random.Next(0, 3), random.Next(0, 2)));
 					}
 					else
 					{
 						if (z < ZNumber / 2)
 						{
-							layer0.SetCell(cellPosition, 1, new Vector2I(4, 0));
+
+							layer0.SetCell(cellPosition, 4, new Vector2I(4, 0));
 						}
 						else
 						{
-							layer0.SetCell(cellPosition, 1, new Vector2I(2, 0));
+
+							layer0.SetCell(cellPosition, 4, new Vector2I(2, 0));
 						}
 					}
 				}
@@ -170,11 +177,14 @@ public partial class PlayerMap : Node
 
 	public void SetTree()
 	{
-        // res://Com/PlayerMap/Tree/tree.tscn
+		// 确保路径大小写正确
 		PackedScene tree = GD.Load<PackedScene>("res://Com/PlayerMap/Tree/tree.tscn");
 		var treeInstance = tree.Instantiate<Tree>();
+		MarkeMap_tree mt = new MarkeMap_tree();
+
+		// treeInstance.Setup(mt.getTreePath("Oak"));
+		treeInstance.Setup(mt.getTreePath("Cedar"));
+		GD.Print(mt.getTreePath("Oak").TreeClassName);
 		AddChild(treeInstance);
-        MarkeMap_tree mt = new MarkeMap_tree();
-		treeInstance.Setup(mt.Oaktree);
-    }
+	}
 }
