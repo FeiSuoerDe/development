@@ -24,9 +24,9 @@
     "S2D": {
         "Path": "res://Com/PlayerMap/source/Nature/WinterTrees.png",
         "Animation": {
-            "H": 4,
-            "V": 4,
-            "F": 1
+            "H": 10,
+            "V": 1,
+            "F": 0
         }
     },
     "Products": {

@@ -154,20 +154,15 @@ public partial class PlayerMap : Node
 
 
 						// 根据噪声值设置瓦片索引
-						layer0.SetCell(cellPosition, 5, new Vector2I(random.Next(0, 3), random.Next(0, 2)));
+						layer0.SetCell(cellPosition, 1, new Vector2I(random.Next(0, 10), 0));
 					}
 					else
 					{
-						if (z < ZNumber / 2)
-						{
 
-							layer0.SetCell(cellPosition, 4, new Vector2I(4, 0));
-						}
-						else
-						{
 
-							layer0.SetCell(cellPosition, 4, new Vector2I(2, 0));
-						}
+						layer0.SetCell(cellPosition, 2, new Vector2I(random.Next(0, 10), 0));
+
+
 					}
 				}
 			}
@@ -182,8 +177,8 @@ public partial class PlayerMap : Node
 		var treeInstance = tree.Instantiate<Tree>();
 		MarkeMap_tree mt = new MarkeMap_tree();
 
-		// treeInstance.Setup(mt.getTreePath("Oak"));
-		treeInstance.Setup(mt.getTreePath("Cedar"));
+		treeInstance.Setup(mt.getTreePath("Oak"));
+		// treeInstance.Setup(mt.getTreePath("Cedar"));
 		GD.Print(mt.getTreePath("Oak").TreeClassName);
 		AddChild(treeInstance);
 	}
