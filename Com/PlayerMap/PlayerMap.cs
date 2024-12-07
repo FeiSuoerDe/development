@@ -174,12 +174,31 @@ public partial class PlayerMap : Node
 	{
 		// 确保路径大小写正确
 		PackedScene tree = GD.Load<PackedScene>("res://Com/PlayerMap/Tree/tree.tscn");
-		var treeInstance = tree.Instantiate<Tree>();
+		// var treeInstance = tree.Instantiate<Tree>();
 		MarkeMap_tree mt = new MarkeMap_tree();
 
-		treeInstance.Setup(mt.getTreePath("Oak"));
+		// treeInstance.Setup(mt.getTreePath("Oak"));
 		// treeInstance.Setup(mt.getTreePath("Cedar"));
-		GD.Print(mt.getTreePath("Oak").TreeClassName);
-		AddChild(treeInstance);
+		// GD.Print(mt.getTreePath("Oak").TreeClassName);
+		for (int i = 0; i < MapSize.X; i++)
+		{
+			for (int j = 0; j < MapSize.Y; j++)
+			{
+				Random random = new Random();
+				if (random.Next(1, 101) > 60 && MapData[i, j, 19] > 0)
+				{
+					var treeInstance = tree.Instantiate<Tree>();
+					treeInstance.Position = new Vector2((i * 16) + 8, (j * 16) + 8);
+					treeInstance.Setup(mt.getTreePath("Oak"));
+					AddChild(treeInstance);
+
+					AddChild(treeInstance);
+				}
+			}
+
+
+		}
 	}
+
+
 }
