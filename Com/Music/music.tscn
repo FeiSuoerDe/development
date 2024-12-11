@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://e2ee8arm4b43"]
+[gd_scene load_steps=2 format=3 uid="uid://e2ee8arm4b43"]
+
+[ext_resource type="Script" path="res://Com/Music/Music.cs" id="1_kvfmi"]
 
 [node name="Music" type="Node"]
+script = ExtResource("1_kvfmi")

@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://drd2j0k7gaykg"]
+[gd_scene load_steps=5 format=3 uid="uid://drd2j0k7gaykg"]
 
 [ext_resource type="Script" path="res://Com/Main/Main.cs" id="1_36cxy"]
+[ext_resource type="PackedScene" uid="uid://bf1u1wes6x7ev" path="res://Com/Main/node_controller.tscn" id="2_fpfw3"]
+[ext_resource type="PackedScene" uid="uid://buh55d20ox51d" path="res://Com/UI/ui.tscn" id="3_8oqlg"]
+[ext_resource type="PackedScene" uid="uid://e2ee8arm4b43" path="res://Com/Music/music.tscn" id="4_ydi5o"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("UI", "Music", "NodeController")]
 script = ExtResource("1_36cxy")
+UI = NodePath("UI")
+Music = NodePath("Music")
+NodeController = NodePath("NodeController")
+
+[node name="UI" parent="." instance=ExtResource("3_8oqlg")]
+
+[node name="Music" parent="." instance=ExtResource("4_ydi5o")]
+
+[node name="NodeController" parent="." instance=ExtResource("2_fpfw3")]
