@@ -17,7 +17,7 @@ public partial class NodeController : Node
 	};
 
 	// 返回实例化的节点
-	public Node GetNodeInstance(string Name)
+	public PackedScene GetNodeInstance(string Name)
 	{
 		PackedScene scene = GD.Load<PackedScene>(SceneDict[Name]);
 		if (scene == null)
@@ -25,23 +25,22 @@ public partial class NodeController : Node
 			GD.PrintErr($"无法加载场景：{Name}");
 			return null;
 		}
-		return scene.Instantiate();
+		return scene;
 
 	}
 	// 添加节点
-	public Node AddNode(Node parent, Node node)
+	public void AddNode(Node parent, PackedScene node)
 	{
 		if (parent == null)
 		{
 			GD.PrintErr("父节点为空");
-			return null;
+			return;
 		}
 		if (node == null)
 		{
 			GD.PrintErr("子节点为空");
-			return null;
+			return;
 		}
-		parent.AddChild(node);
-		return node;
+		parent.AddChild(node.Instantiate());
 	}
 }

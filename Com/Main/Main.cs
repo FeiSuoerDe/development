@@ -16,7 +16,5 @@ public partial class Main : Node2D
 	public override void _Ready()
 	{
 		NodeController.AddNode(UI, NodeController.GetNodeInstance("main_ui"));
-
-
 	}
 }
