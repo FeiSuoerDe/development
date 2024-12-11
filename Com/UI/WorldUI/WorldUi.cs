@@ -34,28 +34,19 @@ public partial class WorldUi : Control
 	private void StartFun()
 	{
 
-		// 		E 0:00:12:0336   void WorldUi.StartFun(): System.NullReferenceException: Object reference not set to an instance of an object.
-		//   < C# 错误>        System.NullReferenceException
-		//   < C# 源文件>       WorldUi.cs:38 @ void WorldUi.StartFun()
-		//   < 栈追踪 > WorldUi.cs:38 @ void WorldUi.StartFun()
 
-		// 				 Callable.generics.cs:39 @ void Godot.Callable.< From > g__Trampoline | 1_0(object, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant &)
+		var parent = GetParent(); // 获取父节点
 
-		// 				 DelegateUtils.cs:86 @ void Godot.DelegateUtils.InvokeWithVariantArgs(nint, System.Void *, Godot.NativeInterop.godot_variant * *, int, Godot.NativeInterop.godot_variant *)
-
-
-		Node2D parent = GetParent() as Node2D; // 获取父节点
 		nodeController = parent.GetParent().GetNode<NodeController>("NodeController");
-		// PackedScene PlayerMap = GD.Load<PackedScene>("res://Com/PlayerMap/player_map.tscn"); // 加载玩家地图场景
+
 		PlayerMap playerMap = nodeController.GetNodeInstance("player_map") as PlayerMap; // 获取玩家地图实例
+		World world = parent.GetNode<World>("World"); // 获取世界节点
 		nodeController.AddNode(parent, playerMap); // 添加玩家地图
-
-
 
 		playerMap.tilesData = tileData; // 设置玩家地图的瓦片数据
 
 
-		World world = parent.GetNode<World>("World"); // 获取世界节点
+
 		playerMap.noise = world.NoiseGenerator;
 		playerMap.noise.Seed = world.NoiseGenerator.Seed; // 设置噪声生成器
 

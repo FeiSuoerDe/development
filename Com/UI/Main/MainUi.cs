@@ -31,6 +31,7 @@ public partial class MainUi : Control
 			GD.Print("退出方法缺失");
 		}
 	}
+	NodeController nodeController;
 
 	// 启动
 	private void StartFun()
@@ -39,41 +40,15 @@ public partial class MainUi : Control
 
 
 		var parent = GetParent();
+		nodeController = parent.GetParent().GetNode<NodeController>("NodeController");
 
 		// 添加相机组件
-		PackedScene cameraScene = GD.Load<PackedScene>("res://Com/Camera/camera.tscn"); // 修改为实际文件名
-		if (cameraScene != null)
-		{
-			Camera cameraInstance = cameraScene.Instantiate<Camera>();
-			parent.AddChild(cameraInstance);
-		}
-		else
-		{
-			GD.PrintErr("无法加载相机场景：res://Com/Camera/camera.tscn");
-		}
+		nodeController.AddNode(parent, nodeController.GetNodeInstance("camera"));
 
 		// 添加World组件
-		PackedScene worldScene = GD.Load<PackedScene>("res://Com/World/World.tscn");
-		if (worldScene != null)
-		{
-			World worldInstance = worldScene.Instantiate<World>();
-			parent.AddChild(worldInstance);
-		}
-		else
-		{
-			GD.PrintErr("无法加载世界场景：res://Com/World/World.tscn");
-		}
+		nodeController.AddNode(parent, nodeController.GetNodeInstance("world"));
 		// 添加worldUI组件
-		PackedScene worldUIScene = GD.Load<PackedScene>("res://Com/UI/WorldUI/world_ui.tscn");
-		if (worldUIScene != null)
-		{
-			WorldUi worldUIInstance = worldUIScene.Instantiate<WorldUi>();
-			parent.AddChild(worldUIInstance);
-		}
-		else
-		{
-			GD.PrintErr("无法加载世界UI场景：res://Com/UI/WorldUI/WorldUI.tscn");
-		}
+		nodeController.AddNode(parent, nodeController.GetNodeInstance("world_ui"));
 		// 删除自身
 		QueueFree();
 	}

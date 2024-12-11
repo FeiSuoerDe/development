@@ -118,7 +118,6 @@ public partial class World : Node
 				Vector2I map = TerrainLayer.LocalToMap(pos);
 				var parent = GetParent();
 				var childNode = parent.GetNode<WorldUi>("WorldUI");
-				GD.Print(childNode);
 				childNode.Stard.Disabled = false;
 				childNode.tileData = tilesDatas[map.X, map.Y];
 				// 获取点击位置的地形数据

@@ -65,7 +65,7 @@ public partial class PlayerMap : Node
 	// 设置相机位置和缩放
 	public void setCamera()
 	{
-		Node2D parent = GetParent() as Node2D;                // 获取父节点
+		var parent = GetParent();                // 获取父节点
 		Camera camera = parent.GetNode<Camera>("Camera");     // 获取相机节点
 		Camera2D camera2D = camera.GetNode<Camera2D>("Camera2D"); // 获取Camera2D节点
 		camera2D.Position = new Vector2(1600, 1600);          // 设置相机位置
