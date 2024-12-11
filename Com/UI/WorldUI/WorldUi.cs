@@ -30,22 +30,37 @@ public partial class WorldUi : Control
 		label.Text = tileData.ToString(); // 设置标签文本为瓦片数据的字符串表示
 	}
 	private Node2D father;
+	NodeController nodeController;
 	private void StartFun()
 	{
-		Node2D parent = GetParent() as Node2D; // 获取父节点
-		PackedScene PlayerMap = GD.Load<PackedScene>("res://Com/PlayerMap/player_map.tscn"); // 加载玩家地图场景
 
-		var playerMap = PlayerMap.Instantiate<PlayerMap>(); // 实例化玩家地图
-		World world = parent.GetNode<World>("World"); // 获取世界节点
-		WorldUi worldUi = parent.GetNode<WorldUi>("WorldUI"); // 获取世界UI节点
+		// 		E 0:00:12:0336   void WorldUi.StartFun(): System.NullReferenceException: Object reference not set to an instance of an object.
+		//   < C# 错误>        System.NullReferenceException
+		//   < C# 源文件>       WorldUi.cs:38 @ void WorldUi.StartFun()
+		//   < 栈追踪 > WorldUi.cs:38 @ void WorldUi.StartFun()
+
+		// 				 Callable.generics.cs:39 @ void Godot.Callable.< From > g__Trampoline | 1_0(object, Godot.NativeInterop.NativeVariantPtrArgs, Godot.NativeInterop.godot_variant &)
+
+		// 				 DelegateUtils.cs:86 @ void Godot.DelegateUtils.InvokeWithVariantArgs(nint, System.Void *, Godot.NativeInterop.godot_variant * *, int, Godot.NativeInterop.godot_variant *)
+
+
+		Node2D parent = GetParent() as Node2D; // 获取父节点
+		nodeController = parent.GetParent().GetNode<NodeController>("NodeController");
+		// PackedScene PlayerMap = GD.Load<PackedScene>("res://Com/PlayerMap/player_map.tscn"); // 加载玩家地图场景
+		PlayerMap playerMap = nodeController.GetNodeInstance("player_map") as PlayerMap; // 获取玩家地图实例
+		nodeController.AddNode(parent, playerMap); // 添加玩家地图
+
+
 
 		playerMap.tilesData = tileData; // 设置玩家地图的瓦片数据
 
+
+		World world = parent.GetNode<World>("World"); // 获取世界节点
 		playerMap.noise = world.NoiseGenerator;
 		playerMap.noise.Seed = world.NoiseGenerator.Seed; // 设置噪声生成器
-		parent.AddChild(playerMap); // 将玩家地图添加到父节点
+
 		world.QueueFree(); // 释放世界节点
-		worldUi.QueueFree(); // 释放世界UI节点
+		parent.GetNode<WorldUi>("WorldUI").QueueFree(); // 释放世界UI节点
 	}
 
 	public void setSprite(Vector2 vector2)

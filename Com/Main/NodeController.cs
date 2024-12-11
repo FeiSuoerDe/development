@@ -11,7 +11,8 @@ public partial class NodeController : Node
 		{"main_ui", "res://Com/UI/Main/main_ui.tscn"},
 		{"camera","res://Com/Camera/camera.tscn"},
 		{"world","res://Com/World/World.tscn"},
-		{"world_ui","res://Com/UI/WorldUI/world_ui.tscn"}
+		{"world_ui","res://Com/UI/WorldUI/world_ui.tscn"},
+		{"player_map","res://Com/PlayerMap/player_map.tscn"}
 
 	};
 
