@@ -7,6 +7,7 @@ frequency = 0.001
 metadata/_preview_in_3d_space_ = true
 
 [node name="PlayerMap" type="Node2D" node_paths=PackedStringArray("node2D")]
+top_level = true
 script = ExtResource("1_kecof")
 node2D = NodePath("Node2D")
 noise = SubResource("FastNoiseLite_0bsmn")
