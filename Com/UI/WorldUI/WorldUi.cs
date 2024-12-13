@@ -39,17 +39,17 @@ public partial class WorldUi : Control
 
 		nodeController = parent.GetParent().GetNode<NodeController>("NodeController");
 
-		PlayerMap playerMap = nodeController.GetNodeInstance("player_map") as PlayerMap; // 获取玩家地图实例
+		PackedScene playerMap = nodeController.GetNodeInstance("player_map"); // 获取玩家地图实例
 		World world = parent.GetNode<World>("World"); // 获取世界节点
 		nodeController.AddNode(parent, playerMap); // 添加玩家地图
+		PlayerMap playerMapNode = parent.GetNode<PlayerMap>("PlayerMap"); // 获取玩家地图节点
+		playerMapNode.tilesData = tileData; // 设置玩家地图的瓦片数据
 
-		playerMap.tilesData = tileData; // 设置玩家地图的瓦片数据
 
 
-
-		playerMap.noise = world.NoiseGenerator;
-		playerMap.noise.Seed = world.NoiseGenerator.Seed; // 设置噪声生成器
-
+		playerMapNode.noise = world.NoiseGenerator;
+		playerMapNode.noise.Seed = world.NoiseGenerator.Seed; // 设置噪声生成器
+		GD.Print(playerMapNode.noise.Seed);
 		world.QueueFree(); // 释放世界节点
 		parent.GetNode<WorldUi>("WorldUI").QueueFree(); // 释放世界UI节点
 	}

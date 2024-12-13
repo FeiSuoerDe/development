@@ -3,6 +3,9 @@ using System;
 
 using System.Collections.Generic;
 
+/// <summary>
+/// 管理场景节点的控制器类。
+/// </summary>
 public partial class NodeController : Node
 {
 
