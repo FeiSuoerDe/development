@@ -18,10 +18,6 @@ public partial class PlayerMap : Node
 	[Export]
 	public int ZNumber = 1; // 地图的层数（深度）
 
-	public override void _Process(double delta)
-	{
-		// 监听用户输入，PgUp和PgDn用于切换显示的层级
-	}
 
 	public override void _Ready()
 	{
