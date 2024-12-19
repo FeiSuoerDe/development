@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://resi5fowext"]
+[gd_scene load_steps=9 format=3 uid="uid://resi5fowext"]
 
 [ext_resource type="Script" path="res://Com/UI/WorldUI/WorldUi.cs" id="1_dls7y"]
 [ext_resource type="Texture2D" uid="uid://cy84gc0ev8od3" path="res://Com/UI/WorldUI/source/BoxSelector.png" id="2_q3s4w"]
+[ext_resource type="Texture2D" uid="uid://b82jmpcxey1cb" path="res://Com/UI/Main/img/button-stard.png" id="3_dficb"]
+[ext_resource type="Texture2D" uid="uid://desqdxuc4fo6m" path="res://Com/UI/Main/img/boutton-stard-export.png" id="4_7wq5f"]
+[ext_resource type="Texture2D" uid="uid://cjr628rwynlgn" path="res://Com/UI/Main/img/boder-main.png" id="5_42455"]
 
 [sub_resource type="Animation" id="Animation_hs3d3"]
 resource_name = "Aspr"
@@ -76,37 +79,81 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -103.0
+offset_left = 16.0
+offset_top = -200.0
+offset_right = -16.0
+offset_bottom = -17.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Stard" type="Button" parent="CanvasLayer/Panel"]
+[node name="Stard" type="TextureButton" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 480.0
-offset_top = -40.0
-offset_right = 520.0
-offset_bottom = -9.0
-grow_vertical = 0
-mouse_force_pass_scroll_events = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -328.0
+offset_top = 11.5
+offset_right = -72.0
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_dficb")
+texture_hover = ExtResource("4_7wq5f")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Stard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -24.0
+offset_right = 30.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.560784, 0, 1)
+theme_override_font_sizes/font_size = 30
 text = "开始"
 
-[node name="Again" type="Button" parent="CanvasLayer/Panel"]
+[node name="Again" type="TextureButton" parent="CanvasLayer/Panel"]
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -40.0
-offset_right = 104.0
-offset_bottom = -9.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 12.5
+offset_right = 296.0
+offset_bottom = 76.5
 grow_horizontal = 2
-grow_vertical = 0
-size_flags_vertical = 8
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("3_dficb")
+texture_hover = ExtResource("4_7wq5f")
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel/Again"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.560784, 0, 1)
+theme_override_font_sizes/font_size = 30
 text = "重置"
 
 [node name="Label" type="Label" parent="CanvasLayer/Panel"]
@@ -114,6 +161,20 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 24.0
+offset_right = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "请选择一个地块"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_42455")
+patch_margin_left = 100
+patch_margin_top = 100
+patch_margin_right = 100
+patch_margin_bottom = 100

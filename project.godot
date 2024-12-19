@@ -74,5 +74,5 @@ PgDn={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
-environment/defaults/default_clear_color=Color(0.229963, 0.293593, 0.521966, 1)
+textures/canvas_textures/default_texture_filter=2
+environment/defaults/default_clear_color=Color(0.0789907, 0.109855, 0.222433, 1)

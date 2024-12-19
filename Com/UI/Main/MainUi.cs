@@ -5,9 +5,9 @@ using Godot;
 public partial class MainUi : Control
 {
 	[Export]
-	public Button Start;
+	public TextureButton Start;
 	[Export]
-	public Button Quit;
+	public TextureButton Quit;
 	public override void _Ready()
 	{
 
@@ -36,7 +36,7 @@ public partial class MainUi : Control
 	// 启动
 	private void StartFun()
 	{
-
+		GD.Print("12");
 
 
 		var parent = GetParent();

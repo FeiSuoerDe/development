@@ -7,9 +7,9 @@ public partial class WorldUi : Control
 	[Export]
 	public Label label; // 显示文本
 	[Export]
-	public Button Stard; // 开始按钮
+	public TextureButton Stard; // 开始按钮
 	[Export]
-	public Button Again; // 重来按钮
+	public TextureButton Again; // 重来按钮
 	[Export]
 	public AnimationPlayer animationPlayer; // 动画播放器
 
