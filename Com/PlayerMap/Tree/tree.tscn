@@ -1,12 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://wruqqkbtflnj"]
 
 [ext_resource type="Script" path="res://Com/PlayerMap/Tree/Tree.cs" id="1_ykt1n"]
-[ext_resource type="Texture2D" uid="uid://ox2jnnye4jp1" path="res://Com/PlayerMap/source/Nature/tree-export.png" id="2_nio4o"]
+[ext_resource type="Texture2D" uid="uid://cgujredw4n4gp" path="res://Com/PlayerMap/Tree/Tree.png" id="2_ipdp4"]
 
 [node name="Tree" type="Node2D"]
 script = ExtResource("1_ykt1n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_nio4o")
-hframes = 10
+texture = ExtResource("2_ipdp4")
+hframes = 5
+frame = 1

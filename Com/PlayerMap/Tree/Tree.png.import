@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpqno36h5bp72"
-path="res://.godot/imported/Wheatfield.png-ce1d7677877a94c98993d28dea65c821.ctex"
+uid="uid://cgujredw4n4gp"
+path="res://.godot/imported/Tree.png-46f8d3c4b5218e32eeaf40ad1c534b64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Com/PlayerMap/source/Nature/Wheatfield.png"
-dest_files=["res://.godot/imported/Wheatfield.png-ce1d7677877a94c98993d28dea65c821.ctex"]
+source_file="res://Com/PlayerMap/Tree/Tree.png"
+dest_files=["res://.godot/imported/Tree.png-46f8d3c4b5218e32eeaf40ad1c534b64.ctex"]
 
 [params]
 

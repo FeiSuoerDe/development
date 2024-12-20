@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csd0im7qq8fux"
-path="res://.godot/imported/DeadTrees.png-642695f30514cd0024150b0f3e5ab057.ctex"
+uid="uid://dmjwuyyiqs6yp"
+path="res://.godot/imported/Worldbackground.png-fad1324f78698bbed70afd8e6157d438.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Com/PlayerMap/source/Nature/DeadTrees.png"
-dest_files=["res://.godot/imported/DeadTrees.png-642695f30514cd0024150b0f3e5ab057.ctex"]
+source_file="res://Com/World/source/Worldbackground.png"
+dest_files=["res://.godot/imported/Worldbackground.png-fad1324f78698bbed70afd8e6157d438.ctex"]
 
 [params]
 

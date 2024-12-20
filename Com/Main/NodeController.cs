@@ -16,7 +16,8 @@ public partial class NodeController : Node
 		{"world","res://Com/World/World.tscn"},
 		{"world_ui","res://Com/UI/WorldUI/world_ui.tscn"},
 		{"player_map","res://Com/PlayerMap/player_map.tscn"},
-		{"tree",""}
+		{"tree",""},
+		{"flower",""}
 
 	};
 

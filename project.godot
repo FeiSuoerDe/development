@@ -15,6 +15,10 @@ run/main_scene="res://Com/Main/main.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Development"
@@ -74,5 +78,5 @@ PgDn={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=2
-environment/defaults/default_clear_color=Color(0.0789907, 0.109855, 0.222433, 1)
+textures/canvas_textures/default_texture_filter=3
+environment/defaults/default_clear_color=Color(0.141176, 0.168627, 0.0941176, 1)

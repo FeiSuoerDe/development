@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ox2jnnye4jp1"
-path="res://.godot/imported/tree-export.png-43782076e18c2fa01ee74e45c9064255.ctex"
+uid="uid://qdetji5jbp0"
+path="res://.godot/imported/flowsers.png-a04fd5725f950ec8795e62d3a3d4b130.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Com/PlayerMap/source/Nature/tree-export.png"
-dest_files=["res://.godot/imported/tree-export.png-43782076e18c2fa01ee74e45c9064255.ctex"]
+source_file="res://Com/PlayerMap/TileSet/flowsers.png"
+dest_files=["res://.godot/imported/flowsers.png-a04fd5725f950ec8795e62d3a3d4b130.ctex"]
 
 [params]
 
